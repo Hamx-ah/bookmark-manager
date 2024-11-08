@@ -1,0 +1,8 @@
+<main>
+<%= render partial:'addMark',locals: { marks: @mark, categories: @categories, userId: @user_id} %>
+<% if flash[:error] %>
+  <div class="m-auto  alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+</main>

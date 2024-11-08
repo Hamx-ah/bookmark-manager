@@ -1,0 +1,38 @@
+<div class="mark-detail-page">
+  <h2 class="mark-detail-title"><%= @mark.name %></h2>
+  
+  <div class="mark-detail-item">
+    <h4 class="mark-detail-label">URL:</h4>
+    <p class="mark-detail-url">
+      <a href="<%= @mark.url %>" target="_blank" rel="noopener noreferrer"><%= @mark.url %></a>
+    </p>
+  </div>
+  
+  <div class="mark-detail-item">
+    <h4 class="mark-detail-label">Tags:</h4>
+    <div class="mark-detail-tags">
+      <% @mark.tags.split(',').each do |tag| %>
+        <span class="tag"><%= tag.strip %></span>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="mark-detail-item">
+    <h4 class="mark-detail-label">Category:</h4>
+    <p class="mark-detail-category"><%= @mark.category %></p>
+  </div>
+
+  <div class="mark-detail-item">
+    <h4 class="mark-detail-label">Description:</h4>
+    <p class="mark-detail-description"><%= @mark.description %></p>
+  </div>
+  
+  <!-- Action Buttons (Edit and Delete) -->
+  <div class="action-buttons">
+    <%= link_to 'Edit', edit_mark_path(@mark), class: 'action-button edit-button' %>
+    <%= link_to 'Delete', mark_path(@mark),  data: { turbo_method: :delete, turbo_confirm: 'Are you sure you want to delete this bookmark?' }, class: 'action-button delete-button' %>
+  </div>
+  
+  <!-- Visit Button -->
+  <a href="<%= @mark.url %>" target="_blank" rel="noopener noreferrer" class="visit-button">Visit Site</a>
+</div>

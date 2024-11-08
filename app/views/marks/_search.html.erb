@@ -1,0 +1,13 @@
+<%=form_with method: :get, url: search_by_title_path, html:{class: "search-group m-auto flex justify-evenly align-center"} do |form|%>
+<%=form.text_field :title, placeholder:"search by website name" ,class:"input i-search"%>
+<%= form.button "Search" , type:"submit", class:"button btn-primary"%>
+<%end%>
+<%=form_with method: :get, url: search_by_filter_path, html:{class: "search-group m-auto flex justify-evenly align-center"} do |form|%>
+
+<% # form.text_field :tags, placeholder:"search by tag" ,class:"input i-t-search" %>
+
+<%= form.select :category, options_for_select([ "books", "movies", "music", "food", "travel", "games", "courses", "educational", "other" ]), class: "select" %>
+
+
+<%= form.button "Apply filter" , type:"submit", class:"button btn-secondary"%>
+<%end%>

@@ -1,0 +1,28 @@
+<div class="c">
+
+<%= render partial: 'search' %>
+
+    <div class="marks-container flex justify-between f-wrap">
+  <% @marks.each do |mark| %>
+    <div class="mark-card">
+    <div class="mark-content group">
+      <!-- Category Tag on Top -->
+      <span class="mark-category"><%= mark.category %></span>
+      <!-- Content Section -->
+      <div class="mark-info">
+        <h3 class="mark-title"><%= mark.name %></h3>
+        <p class="mark-tags flex justify-baseline"><% mark.tags.split(',').each do |tag|%>
+        <span class="tags"><%= tag %></span>
+        <%end%>
+        </p>
+      </div>
+      <!-- View Button -->
+      <div class="view-button-container">
+        <%= link_to 'View', mark_path(mark.id), class: 'view-button' %>
+      </div>
+    </div>
+</div>
+  <% end %>
+
+</div>
+</div>

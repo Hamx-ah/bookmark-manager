@@ -1,0 +1,26 @@
+<%= form_with model: marks, html:{class:"flex f-col justify-around align-center login form-v2"} do |form| %>
+
+<div class="flex align-center justify-between group">
+<div  class="flex align-center group-item justify-between">
+<%= form.label "Name", for:"name", class:"label"%>
+<%= form.text_field :name, placeholder: "website name",class:"input", required: true%>
+</div>
+<hr>
+<div  class="flex align-center group-item  justify-between">
+<%= form.label "URL", for:"url", class:"label"%>
+<%= form.text_field :url, placeholder: "website link",class:"input", required: true%>
+</div>
+<hr>
+<div  class="flex align-center group-item justify-between">
+<%= form.label "Category", for:"category", class:"label"%>
+<%= form.select :category, options_for_select(categories),class:"select", required: true%>
+</div>
+</div>
+
+<%= form.label "Description", for:"description", class:"label"%>
+<%= form.text_area :description, placeholder: "something short but informative about website",class:"textarea", required:true%>
+<%= form.label "Tags", for:"tags", class:"label"%>
+<%= form.text_field :tags, placeholder:"enter tags separated by commas",class:"input", required: true%>
+<%= form.hidden_field :user_id, value: userId %>
+<%= form.button "Add Bookmark", type: "Submit", class:"button btn-primary"%>
+<% end %>

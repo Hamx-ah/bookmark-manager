@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "B Marks" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+  <nav class="flex align-center justify-around">
+  <h1 class="flex align-center justify-evenly"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path></svg> BookMark Manager</h1>
+  <div class="flex align-center justify-between list">
+<%= link_to 'Home', marks_path, class:"no-decorations aj-styles" %>
+<%= link_to 'Add Bookmark', new_mark_path, class:"no-decorations aj-styles" %>
+<%= link_to 'Logout', logout_user_path,  class:"button btn-secondary flex align-center justify-center no-decorations btn-custom"%>
+</div>
+  </nav>
+    <%= yield %>
+  </body>
+</html>

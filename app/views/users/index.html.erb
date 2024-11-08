@@ -1,0 +1,33 @@
+<main class="flex f-col align-center justify-center">
+<h2 class="main-heading"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1.2em" width="1.2em" xmlns="http://www.w3.org/2000/svg"><path d="M0 512V48C0 21.49 21.49 0 48 0h288c26.51 0 48 21.49 48 48v464L192 400 0 512z"></path></svg> BookMark Manager</h1>
+
+<%= form_with url: login_user_path, method: :post, html:{class: "flex f-col align-center justify-around login"} do |form|%>
+<%= form.label "Email", for:"email", class:"label"%>
+<%= form.email_field :email, required: true, class:"input", placeholder:"bookmark@manager.pk" %>
+<%= form.label "Password", for:"password", class:"label"%>
+<%= form.password_field :password, required: true, class:"input", placeholder: "sTr@nG password"%>
+<%# login %>
+<%= form.button "Login", type: "Submit", class:"button btn-primary"%>
+<span>or</span>
+<%# signup %>
+<%= link_to 'Sign Up', new_user_path,  class:"button btn-secondary flex align-center justify-center no-decorations"%>
+<%end%>
+<% if flash[:success] %>
+  <div class="alert alert-success">
+    <%= flash[:success] %>
+  </div>
+<% end %>
+
+<% if flash[:error] %>
+  <div class="alert alert-danger">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<% if flash[:warning] %>
+  <div class="alert alert-warning">
+    <%= flash[:warning] %>
+  </div>
+<% end %>
+</main>
+
